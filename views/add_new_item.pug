@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='category') Category:
+      input#category.form-control(type='text' placeholder='category' name='category' required='true' value=(undefined===item ? '' : item.category) )
+      label(for='description') Description:
+      input#description.form-control(type='text' placeholder='this is used for...' name='description' required='true' value=(undefined===item ? '' : item.description))
+      label(for='name') Name:
+      input#name.form-control(type='text' placeholder='name' name='name' required='true' value=(undefined===item ? '' : item.name) )
+      label(for='price') price:
+      input#price.form-control(type='text' name='price' value=(undefined===item ? '' : item.price) )
+      label(for='quantity') quantity:
+      input#quantity.form-control(type='text' name='quantity' value=(undefined===item ? '' : item.quantity) )
+    button.btn.btn-primary(type='submit') Submit
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
